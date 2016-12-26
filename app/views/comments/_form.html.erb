@@ -1,0 +1,13 @@
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.text_field :commenter, placeholder: "Your name", :maxlength => "50" %>
+  </p>
+
+  <p>
+    <%= f.text_area :body, placeholder: "Your comment", cols: "80", rows: "5" %>
+  </p>
+
+  <p>
+    <%= f.submit 'Submit' , :class => 'btn btn-success' %>
+  </p>
+<% end %>

@@ -1,16 +1,27 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  impressionist :actions=>[:show,:index]
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+
+    if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC")
+    elsif params[:tag]
+      @articles = Article.tagged_with(params[:tag])
+      
+    else
+      @articles = Article.all.order('created_at DESC')
+    end
+    
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 
   # GET /articles/new
@@ -29,7 +40,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to articles_url, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -43,7 +54,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to articles_url, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -71,6 +82,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body)
+      params.require(:article).permit(:title, :body, :all_tags)
     end
 end
