@@ -1,3 +1,10 @@
+<% if @article.errors.any? %>
+	<div class="container">
+		<p class="alert alert-danger" role="alert">Article was unsuccessfully updated.</p>
+		<br>
+	</div>
+<% end %>
+
 <div class="container">
 
 	<h1>Editing Article</h1>
