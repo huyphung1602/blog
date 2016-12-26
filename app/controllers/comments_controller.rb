@@ -14,14 +14,17 @@ class CommentsController < ApplicationController
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
-
   end
 
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.destroy
-    redirect_to article_path(@article)
+
+    respond_to do |format|
+      format.html { redirect_to article_path(@article), notice: 'Comment was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   private
