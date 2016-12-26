@@ -26,19 +26,10 @@
   </div>
   <br>
 
-  <% if params[:action] == 'new' %>
-    <div class="actions">
-      <%= f.submit 'Post' , :class => 'btn btn-success' %>
-      <%= link_to 'Back', articles_path, class: 'btn btn-primary btn' %>
-    </div>
-  <% elsif params[:action] == 'edit' %>
-    <div class="actions">
-      <%= f.submit 'Update' , :class => 'btn btn-warning' %>
-      <%= link_to 'Show', @article, class: 'btn btn-success' %>
-      <%= link_to 'Back', articles_path, class: 'btn btn-primary btn' %>
-    </div>
-  <% end %>
-
-
+  <div class="actions">
+    <%= f.submit 'Update' , :class => 'btn btn-warning' %>
+    <%= link_to 'Show', @article, class: 'btn btn-success' %>
+    <%= link_to 'Back', articles_path, class: 'btn btn-primary btn' %>
+  </div>
 
 <% end %>

@@ -16,7 +16,7 @@
 
 				<h3 class="card-title"> <%= @article.title %> </h3>
 
-		            <% if @article.updated_at == nil %>
+		            <% if @article.updated_at == @article.created_at %>
 		              <h6><span> <i class="fa fa-clock-o" style="font-size:24px"></i> Posted at: <%= @article.created_at.strftime("%e  %b %Y %H:%M:%S %p") %>  </span></h6>
 		              <br>
 		            <% else %>
