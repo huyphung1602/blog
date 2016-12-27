@@ -31,7 +31,7 @@ The following **additional** features are implemented:
 * [x] Add alert notification when Create/Update/Delete/Search article.
 * [x] Add alert notification when Create/Delete comment.
 * [x] Add alert notification when Create/Update cause an error.
-* [x] First time create bew article, my blog will show the Posted at: created_at. After update, it will show the Updated at: updated at.
+* [x] First time create new article, my blog will show the Posted at: created_at. After update, it will show the Updated at: updated_at.
 
 ## Video Walkthrough 
 
