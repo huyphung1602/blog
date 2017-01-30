@@ -48,6 +48,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
   Finally I fix it by adding the new .css style for my banner (my banner use a specific id, I modify the style for that id only).
 - I want to make my blog look better but I do not know how to implement bootstrap temmplate. I customize my current blog
   using the basic tips on w3school.
+- The tagging I used is from this resource: [Tagging Resource](https://www.sitepoint.com/tagging-scratch-rails/)
 
 ## License
 
